@@ -13,7 +13,7 @@ namespace SampleLogic.Tests
         public void Should_Valid_When_Input_Prime_Number(int primeNumber)
         {
             // Act
-            bool result = PrimeNumber.IsPrimeNumber(primeNumber);
+            bool result = NumberService.IsPrimeNumber(primeNumber);
 
             // Assert
             Assert.IsTrue(result);
@@ -23,7 +23,7 @@ namespace SampleLogic.Tests
         public void Should_Invalid_When_Input_Wrong_Prime_Number(int wrongPrimeNumber)
         {
             // Act
-            bool result = PrimeNumber.IsPrimeNumber(wrongPrimeNumber);
+            bool result = NumberService.IsPrimeNumber(wrongPrimeNumber);
 
             // Assert
             Assert.IsFalse(result);

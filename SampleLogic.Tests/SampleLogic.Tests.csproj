@@ -47,8 +47,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FactorNumberTests.cs" />
     <Compile Include="PrimeNumberTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniquePrimeFactorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
