@@ -68,5 +68,52 @@ namespace SampleLogic
 
             return uniquePrimeFactorNumbers;
         }
+
+        public static string NumberToString(string inputNumber, ConvertNumberToStringEnum convertType)
+        {
+            string result = string.Empty;
+            string pattern = string.Empty;
+            if (string.IsNullOrEmpty(inputNumber))
+            {
+                return result;
+            }
+
+            string[] arabicNumber = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            string[] thaiNumber = new string[] { "๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙" };
+            string[] fromNumber = null;
+            string[] toNumber = null;
+
+            if (convertType == ConvertNumberToStringEnum.ThaiNumberToEngNumber)
+            {
+                fromNumber = thaiNumber;
+                toNumber = arabicNumber;
+            }
+            else
+            {
+                fromNumber = arabicNumber;
+                toNumber = thaiNumber;
+            }
+
+            char space = (char)32;
+            for (int i = 0; i < inputNumber.Length; i++)
+            {
+                var currentChar = inputNumber[i];
+                var index = Array.IndexOf(fromNumber, currentChar.ToString());
+                if (index == -1 && currentChar == space)
+                {
+                    result = result + " ";
+                }
+                else if (index == -1 && currentChar != space)
+                {
+                    result = result + currentChar.ToString();
+                }
+                else
+                {
+                    result = result + toNumber[index];
+                }
+            }
+
+            return result;
+        }
     }
 }
